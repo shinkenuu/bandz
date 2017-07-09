@@ -1,12 +1,65 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from rest_framework import authentication, generics, permissions
+from api_ import models
+from bandz import serializers
 
-# Create your views here.
 
 def index(request):
-    return render(request, template_name='api/index.html', context={})
+    """
+    
+    :param request: 
+    :return: 
+    """
+    return HttpResponse(content='Yeah, Im alive')
 
-def musics(request, music: str=''):
-    context = {
-        'musics': (music, 'Lamia', 'Time Table', 'Space Dye-Vest', 'Kaleidoscope')
-    }
-    return render(request=request, template_name='api/musics_like.html', context=context)
+
+class LocationList(generics.ListCreateAPIView):
+    queryset = models.Location.objects.all()
+    serializer_class = serializers.LocationSerializer
+    authentication_classes = (authentication.TokenAuthentication, )
+    permission_classes = (permissions.IsAuthenticated, )
+
+
+class LocationDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Location.objects.all()
+    serializer_class = serializers.LocationSerializer
+
+
+class UserList(generics.ListCreateAPIView):
+    queryset = models.User.objects.all()
+    serializer_class = serializers.UserSerializer
+
+
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.User.objects.all()
+    serializer_class = serializers.UserSerializer
+
+
+class BandList(generics.ListCreateAPIView):
+    queryset = models.Band.objects.all()
+    serializer_class = serializers.BandSerializer
+
+
+class BandDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Band.objects.all()
+    serializer_class = serializers.BandSerializer
+
+
+class HostList(generics.ListCreateAPIView):
+    queryset = models.Host.objects.all()
+    serializer_class = serializers.HostSerializer
+
+
+class HostDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Host.objects.all()
+    serializer_class = serializers.HostSerializer
+
+
+class EventList(generics.ListCreateAPIView):
+    queryset = models.Event.objects.all()
+    serializer_class = serializers.EventSerializer
+
+
+class EventDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Event.objects.all()
+    serializer_class = serializers.EventSerializer
