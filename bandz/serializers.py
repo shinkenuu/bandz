@@ -5,28 +5,28 @@ from api_.models import Location, User, Band, Host, Event
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
-        fields = ('id', 'place_id', 'street', 'number', 'city', 'state', 'country')
+        fields = '__all__'
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'first_name', 'last_name', 'email', 'type', 'created', 'location_id')
+        fields = '__all__'
 
 
 class BandSerializer(serializers.ModelSerializer):
     class Meta:
         model = Band
-        fields = ('id', 'user_id', 'name', 'genre', 'url', 'fans_amount')
+        fields = '__all__'
 
 
 class HostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Host
-        fields = ('id', 'user_id', 'name', 'url', 'max_capacity', 'location_id')
+        fields = '__all__'
 
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ('id', 'name', 'location_id', 'starts_at', 'ends_at', 'url', 'host_id')
+        fields = '__all__'
