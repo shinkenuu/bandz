@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -84,14 +85,7 @@ WSGI_APPLICATION = 'bandz.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bandz',
-        'USER': 'bandz',
-        'PASSWORD': 'F63*jT34fh$@gerh%',
-        'HOST': '192.168.99.1',
-        'PORT': '5432'
-    }
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL')),
 }
 
 
