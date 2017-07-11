@@ -26,7 +26,7 @@ SECRET_KEY = 'n0*$#km#$i*qos8f#e&77@o391v5ulicvau=fcyf--vsb4xn2h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'bandz-startup.herokuapp.com',]
 
 
 # Application definition
