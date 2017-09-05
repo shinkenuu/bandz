@@ -5,6 +5,23 @@
     <title>Bandz API</title>
 </head>
 <body>
-    <h3>Hi, this will be the welcome page of Bandz's API</h3>
+    <a href="https://bandz-startup.herokuapp.com/api/music-genres">/api/music-genres/</a><br>
+    <p>Read-only</p>
+    <a href="https://bandz-startup.herokuapp.com/api/places/">/api/places/</a><br>
+    <p>Pass in an place_id or a Place obj so I can read the place_id form it, query Google and return what GOOGLE told me</p>
+    <a href="https://bandz-startup.herokuapp.com/api/users/">/api/users/</a><br>
+    <p>Create a user before any fa, band or host</p>
+    <a href="https://bandz-startup.herokuapp.com/api/fas/">/api/fas/</a><br>
+    <p>Has a User and can relate to Event through /api/event-public/</p>
+    <a href="https://bandz-startup.herokuapp.com/api/bands/">/api/bands/</a><br>
+    <p>Has a User and can create propositions via /api/propositions/</p>
+    <a href="https://bandz-startup.herokuapp.com/api/hosts/">/api/hosts/</a><br>
+    <p>Has a User and can create events at /api/events/ and accept propositions at /api/propositions/</p>
+    <a href="https://bandz-startup.herokuapp.com/api/events/">/api/events/</a><br>
+    <p>The fields 'confirmed' and 'band' are read-only, populated automatically based on what happens at propositions</p>
+    <a href="https://bandz-startup.herokuapp.com/api/propositions/">/api/propositions/</a><br>
+    <p>Must only be created by hosts. Once created, only modify the 'confirmed', ' message' and 'price' fields. Once confirmed, the associated event is confirmed and the winner band gets into the event instance</p>
+    <a href="https://bandz-startup.herokuapp.com/api/event-public/">/api/event-public/</a><br>
+    <p>Opinion of fas about an event</p>
 </body>
 </html>
