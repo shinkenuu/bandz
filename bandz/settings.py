@@ -26,7 +26,7 @@ SECRET_KEY = 'n0*$#km#$i*qos8f#e&77@o391v5ulicvau=fcyf--vsb4xn2h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'bandz-startup.herokuapp.com',]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'bandz-startup.herokuapp.com']
 
 
 # Application definition
@@ -43,10 +43,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 ]
 
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
-    )
+    ),
 }
 
 
