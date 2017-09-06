@@ -6,18 +6,13 @@ from api_.services import get_place_from_google_places
 
 
 def _generic_to_internal_value(data, to_internal_type: type(Model)):
-    if isinstance(data, str) and '"' in data:
-        # It must be a JSON
-        try:
-            json_dict = ast.literal_eval(data)
-            data = json_dict.get('id', None)
-        except ValueError:
-            raise ValidationError('Malformed {} instance'.format(str(to_internal_type)))
+    if isinstance(data, str) and  '[]' == data:
+        return []
     try:
         return to_internal_type.objects.get(pk=data)
     except to_internal_type.DoesNotExist:
         raise ValidationError(
-            'No instance of {} was found matching the provided data'.format(str(to_internal_type)))
+            'No instance of {} was found with this pk'.format(str(to_internal_type)))
 
 
 class PlaceRelatedField(RelatedField):
